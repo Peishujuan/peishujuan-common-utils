@@ -62,4 +62,38 @@ public class DateUtil {
 		long t3 = (long)(Math.random() * (t2-t1+1)+t1);
 		return new Date(t3);
 	}
+	
+	/**
+	 * 
+	 * @Title: getAge 
+	 * @Description: 根据出生日期获取年龄
+	 * @param birthday
+	 * @return
+	 * @return: int
+	 */
+	public static int getAge(Date birthday) {
+		// 获取当前系统的日历类
+		Calendar c = Calendar.getInstance();
+		// 获取当前年月日
+		int yearNow = c.get(Calendar.YEAR);
+		int monthNow = c.get(Calendar.MONTH);
+		int dateNow = c.get(Calendar.DAY_OF_MONTH);
+		c.setTime(birthday);// 用生日初始化日历类
+		int yearBirth = c.get(Calendar.YEAR);
+		int monthBirth = c.get(Calendar.MONTH);
+		int dateBirth = c.get(Calendar.DAY_OF_MONTH);
+		// 年龄 1990-02-10 2019-02-08
+		int age = yearNow - yearBirth;
+		// 出生月份大于前月份 年龄减少1
+		if (monthBirth > monthNow) {
+			age--;
+		}
+		// 如果月份一致并且 日期大于当前日期 年龄减少1
+		if (monthBirth == monthNow && dateBirth > dateNow) {
+			age--;
+		}
+		return age;
+		
+		
+	}
 }

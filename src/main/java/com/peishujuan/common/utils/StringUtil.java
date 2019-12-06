@@ -120,8 +120,19 @@ public class StringUtil {
 		return false;
 		
 	}
-	
-	
+	/**
+	 * 
+	 * @Title: isNumber 
+ * @Description: 判断是否是数值类型
+	 * @param string
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isNumber(String str) {
+		String regex = "^(-)?[0-9]+(.[0-9]+)?$";
+		return str.matches(regex);
+		
+	}
 	
 	
 	

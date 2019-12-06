@@ -53,5 +53,9 @@ public class StringUtilTest {
 		System.out.println(b);
 	}
 
-	
+	@Test
+	public void testIsNumber() {
+		boolean b = StringUtil.isNumber("-0.12345");
+		System.out.println(b);
+	}
 }

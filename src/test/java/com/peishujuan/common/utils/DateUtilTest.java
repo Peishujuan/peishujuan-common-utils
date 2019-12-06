@@ -31,5 +31,12 @@ public class DateUtilTest {
 		System.out.println(df.format(init));
 	}
 
+	@Test
+	public void testGetAge() {
+		Calendar c = Calendar.getInstance();
+		c.set(2000, 11, 06);
+		int i = DateUtil.getAge(c.getTime());
+		System.out.println(i);
+	}
 
 }
