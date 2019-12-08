@@ -178,13 +178,16 @@ public class StringUtil {
 	 * @return
 	 * @return: String
 	 */
-	public static String getPlaceholderValue(String src, String regex){
+	public static String getPlaceholderValue(String src){
+		String regex ="[0-9]+(?=[^0-9]*$)";
+		//编译规则
 		Pattern compile = Pattern.compile(regex);
+		//匹配
 		Matcher matcher = compile.matcher(src);
 		if(matcher.find()) {
 			return matcher.group();
 		}
 		return null;
-		}
+	}
 	
 }
