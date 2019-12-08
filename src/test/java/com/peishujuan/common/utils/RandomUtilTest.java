@@ -8,7 +8,7 @@ public class RandomUtilTest {
 
 	@Test
 	public void testRandom() {
-		//·µ»ØÄêÁä1-10ËêÖ®¼ä
+		//è¿”å›å¹´é¾„åœ¨1-10 å²çš„ä¹‹é—´
 		int i = RandomUtil.random(1, 10);
 		System.out.println(i);
 	}

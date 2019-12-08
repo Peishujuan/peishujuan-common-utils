@@ -14,11 +14,11 @@ public class DateUtil {
 	 * @return: Date
 	 */
 	public static Date getMonthInit(Date date) {
-		//»ñÈ¡µÄµ±Ç°ÏµÍ³µÄÊ±¼äµÄÈÕÀúÀà
+		//èŽ·å–çš„å½“å‰ç³»ç»Ÿçš„æ—¶é—´çš„æ—¥åŽ†ç±»
 		Calendar c = Calendar.getInstance();
-		//ÓÃ´«ÈëµÄÈÕÆÚ³õÊ¼»¯ÈÕÀúÀà
+		//ç”¨ä¼ å…¥çš„æ—¥æœŸåˆå§‹åŒ–æ—¥åŽ†ç±»
 		c.setTime(date);
-		//ÉèÖÃÔÂ·ÝµÄÌìÎª 1
+		//è®¾ç½®æœˆä»½çš„å¤©ä¸º 
 		c.set(Calendar.DAY_OF_MONTH, 1);
 		c.set(Calendar.HOUR_OF_DAY, 0);
 		c.set(Calendar.MINUTE, 0);
@@ -36,29 +36,29 @@ public class DateUtil {
 	 */
 	public static Date getMonthEnd(Date date) {
 		Calendar c = Calendar.getInstance();
-		//ÓÃ´«ÈëµÄÈÕÆÚ³õÊ¼»¯ÈÕÀúÀà
+		//ç”¨ä¼ å…¥çš„æ—¥æœŸåˆå§‹åŒ–æ—¥åŽ†ç±»
 		c.setTime(date);
-		//ÈÃµ±Ç°ÔÂ·Ý+1
+		//è®©å½“å‰æœˆä»½+1
 		c.add(Calendar.MONTH, 1);
-		//ÈÃÈÕÆÚ±ä³ÉÏÂ¸öÔÂÔÂ³õ
+		//è®©æ—¥æœŸå˜æˆä¸‹ä¸ªæœˆæœˆåˆ
 		
 		Date init = getMonthInit(c.getTime());
 		
-		//ÓÃÔÂ³õÔÙ´Î³õÊ¼ÈÕÀúÀà
+		//ç”¨æœˆåˆå†æ¬¡åˆå§‹æ—¥åŽ†ç±»
 		c.setTime(init);
-		//ÈÕÆÚµÄÃëÊý-1
+		//æ—¥æœŸçš„ç§’æ•°-1
 		c.add(Calendar.SECOND, -1);
 		
 		return c.getTime();
 	}
 	
-	//·µ»ØÄ³Ò»¸öÊ±¼ä¶ÎµÄËæ»úÈÕÆÚ
+	//è¿”å›žæŸä¸€ä¸ªæ—¶é—´æ®µçš„éšæœºæ—¥æœŸ
 	public static Date random(Date minDate, Date maxDate) {
-		//¿ªÊ¼ºÁÃëÊý
+		//å¼€å§‹æ¯«ç§’æ•°
 		long t1 = minDate.getTime();
-		//½áÊøºÁÃëÊý
+		//ç»“æŸæ¯«ç§’æ•°
 		long t2 = maxDate.getTime();
-		//½éÓÚt2 t1Ö®¼äµÄºÁÃ×Êý
+		//ä»‹äºŽt2 t1ä¹‹é—´çš„æ¯«ç±³æ•°
 		long t3 = (long)(Math.random() * (t2-t1+1)+t1);
 		return new Date(t3);
 	}
@@ -66,29 +66,29 @@ public class DateUtil {
 	/**
 	 * 
 	 * @Title: getAge 
-	 * @Description: ¸ù¾Ý³öÉúÈÕÆÚ»ñÈ¡ÄêÁä
+	 * @Description: æ ¹æ®å‡ºç”Ÿæ—¥æœŸèŽ·å–å¹´é¾„
 	 * @param birthday
 	 * @return
 	 * @return: int
 	 */
 	public static int getAge(Date birthday) {
-		// »ñÈ¡µ±Ç°ÏµÍ³µÄÈÕÀúÀà
+		// èŽ·å–å½“å‰ç³»ç»Ÿçš„æ—¥åŽ†ç±»
 		Calendar c = Calendar.getInstance();
-		// »ñÈ¡µ±Ç°ÄêÔÂÈÕ
+		// èŽ·å–å½“å‰å¹´æœˆæ—¥
 		int yearNow = c.get(Calendar.YEAR);
 		int monthNow = c.get(Calendar.MONTH);
 		int dateNow = c.get(Calendar.DAY_OF_MONTH);
-		c.setTime(birthday);// ÓÃÉúÈÕ³õÊ¼»¯ÈÕÀúÀà
+		c.setTime(birthday);// ç”¨ç”Ÿæ—¥åˆå§‹åŒ–æ—¥åŽ†ç±»
 		int yearBirth = c.get(Calendar.YEAR);
 		int monthBirth = c.get(Calendar.MONTH);
 		int dateBirth = c.get(Calendar.DAY_OF_MONTH);
-		// ÄêÁä 1990-02-10 2019-02-08
+		//å¹´é¾„ 1990-02-10 2019-02-08
 		int age = yearNow - yearBirth;
-		// ³öÉúÔÂ·Ý´óÓÚÇ°ÔÂ·Ý ÄêÁä¼õÉÙ1
+		//å‡ºç”Ÿæœˆä»½å¤§äºŽå‰æœˆä»½ å¹´é¾„å‡å°‘1
 		if (monthBirth > monthNow) {
 			age--;
 		}
-		// Èç¹ûÔÂ·ÝÒ»ÖÂ²¢ÇÒ ÈÕÆÚ´óÓÚµ±Ç°ÈÕÆÚ ÄêÁä¼õÉÙ1
+		// å¦‚æžœæœˆä»½ä¸€è‡´å¹¶ä¸” æ—¥æœŸå¤§äºŽå½“å‰æ—¥æœŸ å¹´é¾„å‡å°‘1
 		if (monthBirth == monthNow && dateBirth > dateNow) {
 			age--;
 		}

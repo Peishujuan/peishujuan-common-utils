@@ -12,7 +12,7 @@ public class StreamUtil {
 	/**
 	 * 
 	 * @Title: read 
-	 * @Description: Á÷´¦Àí¹¤¾ßÀà
+	 * @Description: ä¸€è¡Œè¡Œè¯»å–æ–‡ä»¶å¹¶æ”¾å…¥listé›†åˆä¸­
 	 * @param inputStream
 	 * @return
 	 * @throws Exception
