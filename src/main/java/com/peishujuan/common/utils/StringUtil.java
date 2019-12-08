@@ -2,6 +2,8 @@ package com.peishujuan.common.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 
@@ -12,18 +14,37 @@ import java.util.Random;
  */
 public class StringUtil {
 
-	//方法1：判断源字符串是否有值，空引号(空白字符串)也算没值 (5分)
+	/**
+	 * 
+	 * @Title: hasLength 
+	 * @Description: 判断源字符串是否有值，空引号(空白字符串)也算没值
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
 	public static boolean hasLength(String src){
 		return src!=null&&src.length()>0;
 	}
 	
-	//方法2：判断源字符串是否有值，空引号(空白字符串)和空格也算没值 (5分)
+	/**
+	 * 
+	 * @Title: hasText 
+	 * @Description: 判断源字符串是否有值，空引号(空白字符串)和空格也算没值
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
 	public static boolean hasText(String src){
 		return src!=null && src.trim().length()>0;
 	}
 	
-	
-	// 随机返回一个中文汉字
+	/**
+	 * 
+	 * @Title: randomChineseString 
+	 * @Description: 随机返回一个中文汉字
+	 * @return
+	 * @return: String
+	 */
 	public static String randomChineseString() {
 		String str=null;
 		int highPos, lowPos;
@@ -43,7 +64,14 @@ public class StringUtil {
 		return str;
 	}
 	
-	//方法3：返回参数length个中文汉字字符串，字符集必须在GB2312(相当于中文简体)范围内，例如“中呀被”(5分)
+	/**
+	 * 
+	 * @Title: randomChineseString 
+	 * @Description: 返回参数len个中文汉字字符, 字符集必须在GB2312(相当于中文简体)范围内, 例如"中呀被"
+	 * @param length
+	 * @return
+	 * @return: String
+	 */
 	public static String randomChineseString(int length){
 		String str = "";
 		for (int i = 0; i < length; i++) {
@@ -51,7 +79,14 @@ public class StringUtil {
 		}
 		return str;
 	}
-	//方法4：返回中文姓名，必须以真实姓开头，百家姓在“六、附百家姓”里，名使用1-2个随机汉字(8分)，内部调用randomChineseString()方法(3分)。返回示例：“刘呀被”、“欧阳及为”
+	
+	/**
+	 * 
+	 * @Title: generateChineseName 
+	 * @Description: 返回中文姓名，必须以真实姓开头，名使用1-2个随机汉字
+	 * @return
+	 * @return: String
+	 */
 	public static String generateChineseName(){
 		String[] str = { "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈", "楮", "卫", "蒋", "沈", "韩", "杨", "朱", "秦", "尤",
 				"许", "何", "吕", "施", "张", "孔", "曹", "严", "华", "金", "魏", "陶", "姜", "戚", "谢", "邹", "喻", "柏", "水", "窦", "章",
@@ -123,7 +158,7 @@ public class StringUtil {
 	/**
 	 * 
 	 * @Title: isNumber 
- * @Description: 判断是否是数值类型
+	 * @Description: 判断是否是数值类型
 	 * @param string
 	 * @return
 	 * @return: boolean
@@ -134,6 +169,22 @@ public class StringUtil {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @Title: getPlaceholderValue 
+	 * @Description: 根据正则在字符串提取一段值，用于后面在url地址里提取ID值
+	 * @param src
+	 * @param regex
+	 * @return
+	 * @return: String
+	 */
+	public static String getPlaceholderValue(String src, String regex){
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher = compile.matcher(src);
+		if(matcher.find()) {
+			return matcher.group();
+		}
+		return null;
+		}
 	
 }
