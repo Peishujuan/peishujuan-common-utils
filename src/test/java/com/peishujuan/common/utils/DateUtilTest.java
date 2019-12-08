@@ -13,7 +13,6 @@ public class DateUtilTest {
 	@Test
 	public void testGetMonthInit() {
 		Calendar c = Calendar.getInstance();
-		//月份从0开始
 		c.set(2018, 8, 28);
 		
 		Date init = DateUtil.getMonthInit(c.getTime());
