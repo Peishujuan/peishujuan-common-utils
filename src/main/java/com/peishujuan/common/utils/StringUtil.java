@@ -190,4 +190,22 @@ public class StringUtil {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @Title: isPhoneNumber 
+	 * @Description: 校验是否是手机号
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean judgeTelephoneIsOk(String str) {
+		//如果不为空则进行手机号判断
+		if(hasText(str)) {
+			//手机号的规则
+			String regex = "1[3|4|5|6|7|8|9]\\d{9}";
+			//根据规则匹配
+			return str.matches(regex);
+		}
+		return false;
+	}
 }

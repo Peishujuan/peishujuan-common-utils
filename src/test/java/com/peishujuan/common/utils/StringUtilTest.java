@@ -58,4 +58,10 @@ public class StringUtilTest {
 		boolean b = StringUtil.isNumber("-0.12345");
 		System.out.println(b);
 	}
+	@Test
+	public void testPlaceholderValue() {
+		String url = "http://news.cnstock.com/news,yw-201908-4413224.htm";
+		String string = StringUtil.getPlaceholderValue(url);
+		System.out.println(string);
+	}
 }
