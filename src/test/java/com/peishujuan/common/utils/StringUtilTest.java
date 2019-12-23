@@ -64,4 +64,14 @@ public class StringUtilTest {
 		String string = StringUtil.getPlaceholderValue(url);
 		System.out.println(string);
 	}
+	
+	@Test
+	public void testUrl() {
+		String url = "http://www.baidu.com";
+		String url1="www.dfahfdkhdk";
+		boolean a = StringUtil.isHttpUrl(url);
+		boolean b = StringUtil.isHttpUrl(url1);
+		System.out.println(a);
+		System.out.println(b);
+	}
 }
