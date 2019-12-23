@@ -219,11 +219,10 @@ public class StringUtil {
 		 URL url;  
 		 try {  
 	         url = new URL(param);
-	        url.openStream();  
+	         url.openStream();  
 	         return true; 
 	    } catch (Exception e1) {  
 	         System.out.println("连接打不开!");  
-	       
 	    }  
 		 return false;
 		
