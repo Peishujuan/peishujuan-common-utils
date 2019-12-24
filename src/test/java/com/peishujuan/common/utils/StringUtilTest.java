@@ -74,4 +74,14 @@ public class StringUtilTest {
 		System.out.println(a);
 		System.out.println(b);
 	}
+	
+	@Test
+	public void test() {
+		String str = "id:2,name:张三,created:2019-02-03 10:23:03";
+		String[] split = str.split(",");
+		for (String string : split) {
+			String[] split2 = string.split(":", 2);
+			System.out.println(split2[1]);
+		}
+	}
 }
