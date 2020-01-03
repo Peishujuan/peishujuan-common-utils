@@ -9,6 +9,14 @@ public class DistanceUtil {
   public static double getDistance(double j1,double w1,double j2,double w2) {
     	 Point2D pointDD = new Point2D.Double(j1, w1);
 	     Point2D pointXD = new Point2D.Double(j2, w2);
+	     double d2 = getDistance(39, 116,41, 117);
+	     double d3 = getDistance(39, 116,45, 117);
+	     double d4 = getDistance(39, 116,43, 119);
+	     double d5 = getDistance(39, 116,43, 121);
+	     
+//	     d6:6环
+//	     天安门的经度：39维度为116 
+	    
 		return calculate(pointDD, pointXD);
     }
     /**
@@ -35,7 +43,7 @@ public class DistanceUtil {
        // Point2D pointDD = new Point2D.Double(116.425249, 39.914504);
         // 北京 西单地铁站
        // Point2D pointXD = new Point2D.Double(116.382001, 39.913329);
-    	double d = getDistance(116.425249, 39.914504,116.382001, 39.913329);
+    	double d = getDistance(39, 116,43, 121);
         System.out.println("两点的距离:"+d+"米");
     }
 }

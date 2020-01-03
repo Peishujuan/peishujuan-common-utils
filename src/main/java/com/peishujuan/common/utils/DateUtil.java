@@ -93,7 +93,28 @@ public class DateUtil {
 			age--;
 		}
 		return age;
-		
+	}
+	/**
+	 * 
+	 * @Title: passyn 
+	 * @Description: 判断星期与车号
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean passyn(String str) {
+		Calendar c = Calendar.getInstance();
+		int yearNow = c.get(Calendar.YEAR);
+		int monthNow = c.get(Calendar.MONTH);
+		int dateNow = c.get(Calendar.DAY_OF_MONTH);
+		int weekNow = c.get(Calendar.DAY_OF_WEEK);
+		if(weekNow%2==0) {
+			System.out.println("可以开尾号为双号车辆");
+			return true;
+		}else {
+			System.out.println("可以开尾号为单号车辆");
+			return false;
+		}
 		
 	}
 }

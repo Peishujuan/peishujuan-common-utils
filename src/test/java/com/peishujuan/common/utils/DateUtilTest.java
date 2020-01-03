@@ -38,4 +38,12 @@ public class DateUtilTest {
 		System.out.println(i);
 	}
 
+	@Test
+	public void testpassyn() {
+		Calendar c = Calendar.getInstance();
+		c.getWeeksInWeekYear();
+		
+		
+		System.out.println(c.getWeeksInWeekYear());
+	}
 }

@@ -2,6 +2,7 @@ package com.peishujuan.common.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -226,5 +227,47 @@ public class StringUtil {
 	    }  
 		 return false;
 	}
-	
+	/**
+	 * 
+	 * @Title: isds 
+	 * @Description: 判断单双号
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isds(Integer str) {
+		if(str%2==0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	/**
+	 * 
+	 * @Title: carid 
+	 * @Description: 判断本地外地车牌号
+	 * @param str
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isCarid(String str) {
+		if(str.contains("京")) {
+			System.out.println("北京车牌号");
+			return true;
+		}else {
+			System.out.println("外地车牌号");
+			return false;
+		}
+	}
+
+	public static boolean idTypeid(String typeid) {
+		if(typeid=="A") {
+			System.out.println("摩托车A");
+		}else if(typeid=="B") {
+			System.out.println("摩托车B");
+		}else {
+			System.out.println("汽车");
+		}
+		return false;
+	}
 }
