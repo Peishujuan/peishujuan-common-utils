@@ -42,8 +42,24 @@ public class DateUtilTest {
 	public void testpassyn() {
 		Calendar c = Calendar.getInstance();
 		c.getWeeksInWeekYear();
-		
-		
 		System.out.println(c.getWeeksInWeekYear());
+	}
+	
+	@Test
+	public void getDateByInitMonth() {
+		Calendar c = Calendar.getInstance();
+		c.set(2019, 5, 15);
+		Date init = DateUtil.getDateByInitMonth(c.getTime());
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(date.format(init));
+	}
+	
+	@Test
+	public void getDateByFullMonth() {
+		Calendar c = Calendar.getInstance();
+		c.set(2019, 5, 18);
+		Date init = DateUtil.getDateByFullMonth(c.getTime());
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(date.format(init));
 	}
 }
